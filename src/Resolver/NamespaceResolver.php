@@ -271,4 +271,12 @@ class NamespaceResolver implements ResolverInterface
 
         return $all;
     }
+
+    public function getByResource() {
+        return $this->byResource;
+    }
+
+    public function getRootNamespace() {
+        return $this->rootNamespace;
+    }
 }

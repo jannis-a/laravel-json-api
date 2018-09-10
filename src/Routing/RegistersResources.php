@@ -108,7 +108,13 @@ trait RegistersResources
             return $this->options['controller'] = '\\' . JsonApiController::class;
         }
 
-        return $this->options['controller'] = Str::classify($this->resourceType) . 'Controller';
+        return $this->options['controller'] = sprintf(
+            $this->resolver->getApi()->getByResource()
+                ? '%s\\%s\\Controller'
+                : '%s\\Controllers\\%sController',
+            $this->resolver->getApi()->getRootNamespace(),
+            Str::classify($this->resourceType)
+        );
     }
 
     /**

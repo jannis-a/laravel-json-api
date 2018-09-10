@@ -267,4 +267,8 @@ class AggregateResolver implements ResolverInterface, IteratorAggregate
 
         return null;
     }
+
+    public function getApi() {
+        return $this->api;
+    }
 }
